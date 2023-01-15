@@ -1,0 +1,7 @@
+n=150 homogeneous samples are taken from 0 to 8.5 are used to create an array of bulk Reynolds number to test.
+
+The formula used is Reb=100*2^s for every s in the sample array. 
+
+This parameter study evaluates the non-dimensional velocity profiles of channel flow at differnt turbulence levels. 
+
+The output is a 3d plot that is exported into an stl file to 3D print :-)
