@@ -1,0 +1,9 @@
+sigma				1;
+Ubar				1;
+nuVar				inputNuVar;
+
+nCellsX             4;
+nCellsY             50;
+wallGrading         4.0;
+
+Reb					1; //not used

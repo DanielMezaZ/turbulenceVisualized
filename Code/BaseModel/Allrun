@@ -1,0 +1,22 @@
+#!/bin/sh
+#Create the mesh for the simulation
+#./Allclean
+blockMesh >> log &
+
+#Run the solver and save data-log
+simpleFoam >> log &
+sleep 5
+
+#Wait for the problem to converge
+#foamMonitor -l postProcessing/residuals/0/residuals.dat 
+
+#Run code to generate velocity profiles
+#python3 generateProfile.py 
+
+#Compute the wall shear stress 
+#simpleFoam -postProcess -func wallShearStress -latestTime >> shearStress &     
+
+#Read vals from sample
+simpleFoam -postProcess -func sample -latestTime >> sampleLog
+echo "Finished simulation at:"
+echo "pwd: $(pwd)"
