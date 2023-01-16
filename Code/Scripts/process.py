@@ -18,7 +18,7 @@ from pathlib import Path
 workDir=os.getcwd()
 workDir=str(Path(workDir).parents[1])
 
-sample = np.linspace(0,8.5,150)
+sample = np.linspace(0,8.5,30)
 ReArray=100*2**sample
 
 for i in range(sample.size):
