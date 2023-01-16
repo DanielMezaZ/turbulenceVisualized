@@ -1,0 +1,1889 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 10-e450dce21ea5
+Exec   : blockMesh
+Date   : Jan 16 2023
+Time   : 11:42:32
+Host   : "w530-R9YK46P"
+PID    : 14124
+I/O    : uncollated
+Case   : /home/jdmezazeron/gitDanielMezaZ/turbulenceVisualized/Data/SimulationFiles/E7_Re415
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Reading "blockMeshDict"
+
+Creating block mesh from
+    "system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.5
+        j : 0.00921276 .. 0.036851
+        k : 2
+
+Detected cyclic patches; ordering boundary faces
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (-1 0 -1) (1 1 1)
+  nPoints: 510
+  nCells: 200
+  nFaces: 854
+  nInternalFaces: 346
+----------------
+Patches
+----------------
+  patch 0 (start: 346 size: 50) name: inlet
+  patch 1 (start: 396 size: 50) name: outlet
+  patch 2 (start: 446 size: 4) name: fixedWalls-bottom
+  patch 3 (start: 450 size: 4) name: fixedWalls-top
+  patch 4 (start: 454 size: 400) name: frontAndBack
+
+End
+
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 10-e450dce21ea5
+Exec   : simpleFoam
+Date   : Jan 16 2023
+Time   : 11:42:32
+Host   : "w530-R9YK46P"
+PID    : 14125
+I/O    : uncollated
+Case   : /home/jdmezazeron/gitDanielMezaZ/turbulenceVisualized/Data/SimulationFiles/E7_Re415
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+SIMPLE: Convergence criteria found
+        U: tolerance 0.01
+        p: tolerance 0.01
+        omega: tolerance 0.0001
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Selecting viscosity model Newtonian
+Selecting turbulence model type RAS
+Selecting RAS turbulence model kOmegaSST
+Selecting patchDistMethod meshWave
+RAS
+{
+    RASModel        kOmegaSST;
+    turbulence      on;
+    printCoeffs     on;
+    alphaK1         0.85;
+    alphaK2         1;
+    alphaOmega1     0.5;
+    alphaOmega2     0.856;
+    gamma1          0.555556;
+    gamma2          0.44;
+    beta1           0.075;
+    beta2           0.0828;
+    betaStar        0.09;
+    a1              0.31;
+    b1              1;
+    c1              10;
+    F3              false;
+}
+
+No MRF models present
+
+--> FOAM Warning : Creating fvModels from "system/fvOptions" rather than constant/fvModels
+No fvModels present
+--> FOAM Warning : Creating fvConstraints from "system/fvOptions"
+
+Selecting finite volume constraint type meanVelocityForce
+    Name: momentumSource
+    - selecting all cells
+    - selected 200 cell(s) with volume 4
+    Initial pressure gradient = 0
+
+
+Starting time loop
+
+turbulenceFields stressComponents: storing fields:
+    R
+
+Time = 1s
+
+smoothSolver:  Solving for Ux, Initial residual = 0, Final residual = 0, No Iterations 0
+smoothSolver:  Solving for Uy, Initial residual = 0, Final residual = 0, No Iterations 0
+Pressure gradient source: uncorrected Ubar = 0, pressure gradient = 19.1462
+GAMG:  Solving for p, Initial residual = 0.999987, Final residual = 0.0942206, No Iterations 2
+time step continuity errors : sum local = 7.27234e-17, global = 1.05102e-17, cumulative = 1.05102e-17
+Pressure gradient source: uncorrected Ubar = 0.869362, pressure gradient = 2.50122
+smoothSolver:  Solving for omega, Initial residual = 0.0186379, Final residual = 0.0012303, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 1, Final residual = 0.0383919, No Iterations 1
+ExecutionTime = 0.013695 s  ClockTime = 0 s
+
+Time = 2s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.379637, Final residual = 0.0325745, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 1, Final residual = 0.0752761, No Iterations 2
+Pressure gradient source: uncorrected Ubar = 1.813, pressure gradient = -17.0648
+GAMG:  Solving for p, Initial residual = 1, Final residual = 0.081738, No Iterations 6
+time step continuity errors : sum local = 0.000650375, global = -1.56345e-17, cumulative = -5.12432e-18
+Pressure gradient source: uncorrected Ubar = 1.10998, pressure gradient = -0.14549
+smoothSolver:  Solving for omega, Initial residual = 0.15334, Final residual = 0.000634953, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.132313, Final residual = 0.0132303, No Iterations 2
+ExecutionTime = 0.016229 s  ClockTime = 0 s
+
+Time = 3s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.05546, Final residual = 0.00512095, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.368387, Final residual = 0.0331267, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 0.933363, pressure gradient = 1.51271
+GAMG:  Solving for p, Initial residual = 0.205216, Final residual = 0.0143042, No Iterations 4
+time step continuity errors : sum local = 0.000236342, global = 3.20602e-18, cumulative = -1.9183e-18
+Pressure gradient source: uncorrected Ubar = 0.990488, pressure gradient = 0.0912036
+smoothSolver:  Solving for omega, Initial residual = 0.00899525, Final residual = 0.000203236, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0495059, Final residual = 0.00451931, No Iterations 3
+ExecutionTime = 0.018359 s  ClockTime = 0 s
+
+Time = 4s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0261168, Final residual = 0.00181132, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.240563, Final residual = 0.0200654, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.01022, pressure gradient = -0.158502
+GAMG:  Solving for p, Initial residual = 0.132456, Final residual = 0.00799214, No Iterations 6
+time step continuity errors : sum local = 0.000122888, global = -1.84674e-18, cumulative = -3.76504e-18
+Pressure gradient source: uncorrected Ubar = 1.00139, pressure gradient = 0.0572511
+smoothSolver:  Solving for omega, Initial residual = 0.00864699, Final residual = 0.000153313, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0319589, Final residual = 0.00234678, No Iterations 4
+ExecutionTime = 0.020466 s  ClockTime = 0 s
+
+Time = 5s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0180579, Final residual = 0.0012398, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.295073, Final residual = 0.0207967, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1.00283, pressure gradient = -0.0116017
+GAMG:  Solving for p, Initial residual = 0.138968, Final residual = 0.0101075, No Iterations 8
+time step continuity errors : sum local = 0.000113747, global = -5.36765e-18, cumulative = -9.13269e-18
+Pressure gradient source: uncorrected Ubar = 1.00035, pressure gradient = 0.0486029
+smoothSolver:  Solving for omega, Initial residual = 0.00346437, Final residual = 9.63875e-05, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0249707, Final residual = 0.00215766, No Iterations 4
+ExecutionTime = 0.022609 s  ClockTime = 0 s
+
+Time = 6s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0139559, Final residual = 0.00097808, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.360964, Final residual = 0.0266596, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00242, pressure gradient = -0.0101693
+GAMG:  Solving for p, Initial residual = 0.141096, Final residual = 0.0133078, No Iterations 6
+time step continuity errors : sum local = 0.000102819, global = -1.51793e-17, cumulative = -2.43119e-17
+Pressure gradient source: uncorrected Ubar = 1.0003, pressure gradient = 0.0412487
+smoothSolver:  Solving for omega, Initial residual = 0.00233073, Final residual = 6.21294e-05, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0214811, Final residual = 0.00161995, No Iterations 4
+ExecutionTime = 0.024704 s  ClockTime = 0 s
+
+Time = 7s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.011123, Final residual = 0.000793092, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.397441, Final residual = 0.0251488, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00175, pressure gradient = -0.00113413
+GAMG:  Solving for p, Initial residual = 0.156387, Final residual = 0.0129978, No Iterations 5
+time step continuity errors : sum local = 7.88234e-05, global = -2.33485e-18, cumulative = -2.66468e-17
+Pressure gradient source: uncorrected Ubar = 1.00021, pressure gradient = 0.0360813
+smoothSolver:  Solving for omega, Initial residual = 0.00117826, Final residual = 3.75456e-05, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0187689, Final residual = 0.00172251, No Iterations 4
+ExecutionTime = 0.026743 s  ClockTime = 0 s
+
+Time = 8s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00908826, Final residual = 0.000660734, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.391011, Final residual = 0.0243141, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00139, pressure gradient = 0.00273713
+GAMG:  Solving for p, Initial residual = 0.164329, Final residual = 0.00916332, No Iterations 7
+time step continuity errors : sum local = 4.11227e-05, global = -1.09267e-17, cumulative = -3.75735e-17
+Pressure gradient source: uncorrected Ubar = 1.00017, pressure gradient = 0.0320829
+smoothSolver:  Solving for omega, Initial residual = 0.000699289, Final residual = 2.49469e-05, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0168752, Final residual = 0.000991583, No Iterations 5
+ExecutionTime = 0.028979 s  ClockTime = 0 s
+
+Time = 9s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00758929, Final residual = 0.000558959, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.379558, Final residual = 0.0266066, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00108, pressure gradient = 0.00619125
+GAMG:  Solving for p, Initial residual = 0.145761, Final residual = 0.0135758, No Iterations 5
+time step continuity errors : sum local = 5.86092e-05, global = -1.82276e-17, cumulative = -5.58011e-17
+Pressure gradient source: uncorrected Ubar = 1.00013, pressure gradient = 0.0290359
+smoothSolver:  Solving for omega, Initial residual = 0.000381824, Final residual = 1.5904e-05, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0151311, Final residual = 0.00134795, No Iterations 4
+ExecutionTime = 0.031418 s  ClockTime = 0 s
+
+Time = 10s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00642889, Final residual = 0.000479864, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.408349, Final residual = 0.0324281, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00085, pressure gradient = 0.00885221
+GAMG:  Solving for p, Initial residual = 0.131819, Final residual = 0.0125765, No Iterations 5
+time step continuity errors : sum local = 4.71565e-05, global = 8.85546e-18, cumulative = -4.69457e-17
+Pressure gradient source: uncorrected Ubar = 1.0001, pressure gradient = 0.0267124
+smoothSolver:  Solving for omega, Initial residual = 0.000219312, Final residual = 1.12071e-05, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0138112, Final residual = 0.00125079, No Iterations 4
+ExecutionTime = 0.033702 s  ClockTime = 0 s
+
+Time = 11s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00550586, Final residual = 0.000416938, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.433917, Final residual = 0.036369, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00068, pressure gradient = 0.010637
+GAMG:  Solving for p, Initial residual = 0.120592, Final residual = 0.0115045, No Iterations 4
+time step continuity errors : sum local = 3.73278e-05, global = -7.14472e-18, cumulative = -5.40904e-17
+Pressure gradient source: uncorrected Ubar = 1.00008, pressure gradient = 0.0248995
+smoothSolver:  Solving for omega, Initial residual = 0.000124073, Final residual = 7.89558e-06, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0127448, Final residual = 0.000870207, No Iterations 5
+ExecutionTime = 0.035824 s  ClockTime = 0 s
+
+Time = 12s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00474683, Final residual = 0.00036343, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.44782, Final residual = 0.0385567, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00059, pressure gradient = 0.0110901
+GAMG:  Solving for p, Initial residual = 0.118614, Final residual = 0.0116346, No Iterations 3
+time step continuity errors : sum local = 3.31923e-05, global = 6.53359e-18, cumulative = -4.75568e-17
+Pressure gradient source: uncorrected Ubar = 1.00007, pressure gradient = 0.02335
+smoothSolver:  Solving for omega, Initial residual = 7.18063e-05, Final residual = 6.01729e-06, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0116992, Final residual = 0.00075827, No Iterations 5
+ExecutionTime = 0.037847 s  ClockTime = 0 s
+
+Time = 13s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00413162, Final residual = 0.000319447, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.449871, Final residual = 0.03793, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00048, pressure gradient = 0.0119872
+GAMG:  Solving for p, Initial residual = 0.106875, Final residual = 0.00931193, No Iterations 3
+time step continuity errors : sum local = 2.3588e-05, global = -8.24133e-18, cumulative = -5.57981e-17
+Pressure gradient source: uncorrected Ubar = 1.00005, pressure gradient = 0.0220975
+smoothSolver:  Solving for omega, Initial residual = 4.20889e-05, Final residual = 4.57112e-06, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.0107484, Final residual = 0.000646929, No Iterations 5
+ExecutionTime = 0.039885 s  ClockTime = 0 s
+
+Time = 14s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00362671, Final residual = 0.000281654, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.425372, Final residual = 0.0367495, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00039, pressure gradient = 0.0129444
+GAMG:  Solving for p, Initial residual = 0.102845, Final residual = 0.00705156, No Iterations 4
+time step continuity errors : sum local = 1.55335e-05, global = 3.80341e-18, cumulative = -5.19947e-17
+Pressure gradient source: uncorrected Ubar = 1.00004, pressure gradient = 0.0211151
+smoothSolver:  Solving for omega, Initial residual = 2.5262e-05, Final residual = 3.68403e-06, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.00986674, Final residual = 0.000974144, No Iterations 4
+ExecutionTime = 0.041914 s  ClockTime = 0 s
+
+Time = 15s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00318983, Final residual = 0.000249792, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.39184, Final residual = 0.0340156, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00033, pressure gradient = 0.0134547
+GAMG:  Solving for p, Initial residual = 0.102972, Final residual = 0.00629025, No Iterations 5
+time step continuity errors : sum local = 1.29918e-05, global = 4.82078e-18, cumulative = -4.71739e-17
+Pressure gradient source: uncorrected Ubar = 1.00003, pressure gradient = 0.0203079
+smoothSolver:  Solving for omega, Initial residual = 1.56806e-05, Final residual = 2.97873e-06, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.00917525, Final residual = 0.000830952, No Iterations 4
+ExecutionTime = 0.044093 s  ClockTime = 0 s
+
+Time = 16s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00282399, Final residual = 0.000222094, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.357403, Final residual = 0.0311554, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00029, pressure gradient = 0.0135907
+GAMG:  Solving for p, Initial residual = 0.101815, Final residual = 0.00622097, No Iterations 5
+time step continuity errors : sum local = 1.05104e-05, global = 7.82235e-19, cumulative = -4.63917e-17
+Pressure gradient source: uncorrected Ubar = 1.00003, pressure gradient = 0.0196052
+smoothSolver:  Solving for omega, Initial residual = 1.01105e-05, Final residual = 2.5024e-06, No Iterations 1
+smoothSolver:  Solving for k, Initial residual = 0.00848159, Final residual = 0.000500302, No Iterations 5
+ExecutionTime = 0.046227 s  ClockTime = 0 s
+
+Time = 17s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00250211, Final residual = 0.000198173, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.356712, Final residual = 0.0321612, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00025, pressure gradient = 0.0138661
+GAMG:  Solving for p, Initial residual = 0.105691, Final residual = 0.00683772, No Iterations 5
+time step continuity errors : sum local = 9.51575e-06, global = -5.85734e-18, cumulative = -5.2249e-17
+Pressure gradient source: uncorrected Ubar = 1.00003, pressure gradient = 0.019015
+smoothSolver:  Solving for omega, Initial residual = 6.86601e-06, Final residual = 6.86601e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00841048, Final residual = 0.000624893, No Iterations 5
+ExecutionTime = 0.048792 s  ClockTime = 0 s
+
+Time = 18s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00222598, Final residual = 0.000176859, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.399127, Final residual = 0.0350298, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00023, pressure gradient = 0.0137282
+GAMG:  Solving for p, Initial residual = 0.10719, Final residual = 0.00743657, No Iterations 5
+time step continuity errors : sum local = 8.61716e-06, global = 2.36386e-18, cumulative = -4.98852e-17
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0184668
+smoothSolver:  Solving for omega, Initial residual = 6.88372e-06, Final residual = 6.88372e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00842658, Final residual = 0.00053972, No Iterations 5
+ExecutionTime = 0.051061 s  ClockTime = 0 s
+
+Time = 19s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00198719, Final residual = 0.000158763, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.375699, Final residual = 0.0294418, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00019, pressure gradient = 0.0140463
+GAMG:  Solving for p, Initial residual = 0.106852, Final residual = 0.00748373, No Iterations 5
+time step continuity errors : sum local = 6.77725e-06, global = 5.43509e-18, cumulative = -4.44501e-17
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0180209
+smoothSolver:  Solving for omega, Initial residual = 6.90139e-06, Final residual = 6.90139e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00845695, Final residual = 0.000771632, No Iterations 4
+ExecutionTime = 0.053169 s  ClockTime = 0 s
+
+Time = 20s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00178004, Final residual = 0.000142842, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.327763, Final residual = 0.0229201, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00017, pressure gradient = 0.0141647
+GAMG:  Solving for p, Initial residual = 0.10787, Final residual = 0.00728204, No Iterations 5
+time step continuity errors : sum local = 5.53732e-06, global = 2.61945e-18, cumulative = -4.18306e-17
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0176376
+smoothSolver:  Solving for omega, Initial residual = 6.9131e-06, Final residual = 6.9131e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00853386, Final residual = 0.0006038, No Iterations 5
+ExecutionTime = 0.055231 s  ClockTime = 0 s
+
+Time = 21s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00159919, Final residual = 0.000128983, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.278585, Final residual = 0.0182586, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00015, pressure gradient = 0.0141628
+GAMG:  Solving for p, Initial residual = 0.10874, Final residual = 0.00710064, No Iterations 5
+time step continuity errors : sum local = 4.53247e-06, global = -2.82572e-19, cumulative = -4.21132e-17
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0172933
+smoothSolver:  Solving for omega, Initial residual = 6.92337e-06, Final residual = 6.92337e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00853449, Final residual = 0.000537528, No Iterations 5
+ExecutionTime = 0.057833 s  ClockTime = 0 s
+
+Time = 22s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00143894, Final residual = 0.00011708, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.242868, Final residual = 0.0162023, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00013, pressure gradient = 0.0142856
+GAMG:  Solving for p, Initial residual = 0.106614, Final residual = 0.0105056, No Iterations 4
+time step continuity errors : sum local = 5.69339e-06, global = 3.86776e-18, cumulative = -3.82454e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0170016
+smoothSolver:  Solving for omega, Initial residual = 6.93193e-06, Final residual = 6.93193e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0085487, Final residual = 0.000575878, No Iterations 5
+ExecutionTime = 0.0603 s  ClockTime = 0 s
+
+Time = 23s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00130221, Final residual = 0.000106495, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.240976, Final residual = 0.0165003, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00012, pressure gradient = 0.0143769
+GAMG:  Solving for p, Initial residual = 0.10942, Final residual = 0.0094124, No Iterations 4
+time step continuity errors : sum local = 4.43254e-06, global = 2.03496e-18, cumulative = -3.62105e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0167521
+smoothSolver:  Solving for omega, Initial residual = 6.93972e-06, Final residual = 6.93972e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00857755, Final residual = 0.000597651, No Iterations 5
+ExecutionTime = 0.062431 s  ClockTime = 0 s
+
+Time = 24s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00118012, Final residual = 9.74111e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.26089, Final residual = 0.0183207, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.0001, pressure gradient = 0.014389
+GAMG:  Solving for p, Initial residual = 0.106952, Final residual = 0.00766706, No Iterations 4
+time step continuity errors : sum local = 2.99197e-06, global = -9.81398e-19, cumulative = -3.71919e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0165291
+smoothSolver:  Solving for omega, Initial residual = 6.94847e-06, Final residual = 6.94847e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00856799, Final residual = 0.000567922, No Iterations 5
+ExecutionTime = 0.06485 s  ClockTime = 0 s
+
+Time = 25s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00107571, Final residual = 8.91852e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.288579, Final residual = 0.0202164, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00009, pressure gradient = 0.0144257
+GAMG:  Solving for p, Initial residual = 0.108612, Final residual = 0.00620225, No Iterations 4
+time step continuity errors : sum local = 2.10889e-06, global = -6.08152e-18, cumulative = -4.32734e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0163333
+smoothSolver:  Solving for omega, Initial residual = 6.95486e-06, Final residual = 6.95486e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00859576, Final residual = 0.000583038, No Iterations 5
+ExecutionTime = 0.067065 s  ClockTime = 0 s
+
+Time = 26s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00098547, Final residual = 8.19689e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.304163, Final residual = 0.0221058, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00008, pressure gradient = 0.0144612
+GAMG:  Solving for p, Initial residual = 0.104315, Final residual = 0.0095753, No Iterations 3
+time step continuity errors : sum local = 2.73036e-06, global = -6.49492e-18, cumulative = -4.97683e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0161618
+smoothSolver:  Solving for omega, Initial residual = 6.96151e-06, Final residual = 6.96151e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00864186, Final residual = 0.000676642, No Iterations 5
+ExecutionTime = 0.069123 s  ClockTime = 0 s
+
+Time = 27s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000905904, Final residual = 7.53591e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.322869, Final residual = 0.0230372, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00007, pressure gradient = 0.0144774
+GAMG:  Solving for p, Initial residual = 0.0970416, Final residual = 0.00860057, No Iterations 3
+time step continuity errors : sum local = 2.13072e-06, global = -6.88659e-18, cumulative = -5.66549e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0160093
+smoothSolver:  Solving for omega, Initial residual = 6.9713e-06, Final residual = 6.9713e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00864082, Final residual = 0.000651469, No Iterations 5
+ExecutionTime = 0.071138 s  ClockTime = 0 s
+
+Time = 28s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000834966, Final residual = 6.95085e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.305209, Final residual = 0.0220204, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00007, pressure gradient = 0.0144852
+GAMG:  Solving for p, Initial residual = 0.0944256, Final residual = 0.00811858, No Iterations 3
+time step continuity errors : sum local = 1.72622e-06, global = 6.45131e-18, cumulative = -5.02036e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0158726
+smoothSolver:  Solving for omega, Initial residual = 6.97915e-06, Final residual = 6.97915e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00860123, Final residual = 0.000508754, No Iterations 5
+ExecutionTime = 0.073191 s  ClockTime = 0 s
+
+Time = 29s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000769651, Final residual = 6.41746e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.272074, Final residual = 0.0202797, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00006, pressure gradient = 0.014505
+GAMG:  Solving for p, Initial residual = 0.0902515, Final residual = 0.00466487, No Iterations 4
+time step continuity errors : sum local = 9.31309e-07, global = -7.36411e-18, cumulative = -5.75677e-17
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0157519
+smoothSolver:  Solving for omega, Initial residual = 6.98759e-06, Final residual = 6.98759e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00866093, Final residual = 0.000592616, No Iterations 5
+ExecutionTime = 0.075271 s  ClockTime = 0 s
+
+Time = 30s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000711374, Final residual = 5.9317e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.245694, Final residual = 0.0181593, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00006, pressure gradient = 0.0145133
+GAMG:  Solving for p, Initial residual = 0.0885238, Final residual = 0.00783054, No Iterations 4
+time step continuity errors : sum local = 1.31731e-06, global = -4.41019e-18, cumulative = -6.19779e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0156438
+smoothSolver:  Solving for omega, Initial residual = 6.9904e-06, Final residual = 6.9904e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00866444, Final residual = 0.000584031, No Iterations 5
+ExecutionTime = 0.077419 s  ClockTime = 0 s
+
+Time = 31s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000657956, Final residual = 5.49201e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.234384, Final residual = 0.0173388, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00005, pressure gradient = 0.0145199
+GAMG:  Solving for p, Initial residual = 0.0855177, Final residual = 0.00829398, No Iterations 4
+time step continuity errors : sum local = 1.21668e-06, global = 1.98303e-18, cumulative = -5.99949e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0155469
+smoothSolver:  Solving for omega, Initial residual = 6.99608e-06, Final residual = 6.99608e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00867516, Final residual = 0.000550487, No Iterations 5
+ExecutionTime = 0.079546 s  ClockTime = 0 s
+
+Time = 32s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000610198, Final residual = 5.09468e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.223218, Final residual = 0.016692, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00005, pressure gradient = 0.0145263
+GAMG:  Solving for p, Initial residual = 0.0781448, Final residual = 0.00703813, No Iterations 4
+time step continuity errors : sum local = 9.4788e-07, global = 5.89647e-19, cumulative = -5.94052e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.01546
+smoothSolver:  Solving for omega, Initial residual = 6.9959e-06, Final residual = 6.9959e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00869123, Final residual = 0.000594535, No Iterations 5
+ExecutionTime = 0.081983 s  ClockTime = 0 s
+
+Time = 33s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000567289, Final residual = 4.73839e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.207727, Final residual = 0.0152179, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00004, pressure gradient = 0.0145291
+GAMG:  Solving for p, Initial residual = 0.0799413, Final residual = 0.00694918, No Iterations 4
+time step continuity errors : sum local = 8.44321e-07, global = 1.99797e-18, cumulative = -5.74073e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0153816
+smoothSolver:  Solving for omega, Initial residual = 7.00406e-06, Final residual = 7.00406e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00869281, Final residual = 0.000528061, No Iterations 5
+ExecutionTime = 0.084253 s  ClockTime = 0 s
+
+Time = 34s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000528488, Final residual = 4.4174e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.174843, Final residual = 0.0125727, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00004, pressure gradient = 0.0145342
+GAMG:  Solving for p, Initial residual = 0.0743426, Final residual = 0.00686487, No Iterations 4
+time step continuity errors : sum local = 7.54012e-07, global = -1.03929e-18, cumulative = -5.84466e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0153112
+smoothSolver:  Solving for omega, Initial residual = 7.00755e-06, Final residual = 7.00755e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00872358, Final residual = 0.000579237, No Iterations 5
+ExecutionTime = 0.086612 s  ClockTime = 0 s
+
+Time = 35s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000492823, Final residual = 4.12135e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.146565, Final residual = 0.0108044, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00003, pressure gradient = 0.0145358
+GAMG:  Solving for p, Initial residual = 0.0652261, Final residual = 0.00633081, No Iterations 4
+time step continuity errors : sum local = 6.34523e-07, global = 3.13494e-18, cumulative = -5.53116e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0152475
+smoothSolver:  Solving for omega, Initial residual = 7.00737e-06, Final residual = 7.00737e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00878628, Final residual = 0.000685589, No Iterations 5
+ExecutionTime = 0.089098 s  ClockTime = 0 s
+
+Time = 36s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000460563, Final residual = 3.86142e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.127134, Final residual = 0.00976478, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00003, pressure gradient = 0.0145361
+GAMG:  Solving for p, Initial residual = 0.0596185, Final residual = 0.00460838, No Iterations 5
+time step continuity errors : sum local = 3.85408e-07, global = 7.661e-18, cumulative = -4.76506e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0151897
+smoothSolver:  Solving for omega, Initial residual = 7.01288e-06, Final residual = 7.01288e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00875802, Final residual = 0.000584771, No Iterations 5
+ExecutionTime = 0.091526 s  ClockTime = 0 s
+
+Time = 37s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000430918, Final residual = 3.61815e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.129056, Final residual = 0.00925296, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00003, pressure gradient = 0.0145394
+GAMG:  Solving for p, Initial residual = 0.054969, Final residual = 0.00537615, No Iterations 4
+time step continuity errors : sum local = 4.36537e-07, global = -9.94817e-19, cumulative = -4.86454e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0151376
+smoothSolver:  Solving for omega, Initial residual = 7.01654e-06, Final residual = 7.01654e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00879115, Final residual = 0.000602023, No Iterations 5
+ExecutionTime = 0.097421 s  ClockTime = 0 s
+
+Time = 38s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000403445, Final residual = 3.39673e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.106958, Final residual = 0.006595, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00003, pressure gradient = 0.01454
+GAMG:  Solving for p, Initial residual = 0.0453297, Final residual = 0.00365773, No Iterations 5
+time step continuity errors : sum local = 2.87889e-07, global = 1.96616e-18, cumulative = -4.66793e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0150903
+smoothSolver:  Solving for omega, Initial residual = 7.0174e-06, Final residual = 7.0174e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00881228, Final residual = 0.000653709, No Iterations 5
+ExecutionTime = 0.100577 s  ClockTime = 0 s
+
+Time = 39s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000378637, Final residual = 3.19437e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.107637, Final residual = 0.0064457, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0145399
+GAMG:  Solving for p, Initial residual = 0.0435479, Final residual = 0.00379367, No Iterations 4
+time step continuity errors : sum local = 2.74289e-07, global = 2.84716e-20, cumulative = -4.66508e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0150472
+smoothSolver:  Solving for omega, Initial residual = 7.01624e-06, Final residual = 7.01624e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00878935, Final residual = 0.000570274, No Iterations 5
+ExecutionTime = 0.103884 s  ClockTime = 0 s
+
+Time = 40s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000356267, Final residual = 3.00931e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0922812, Final residual = 0.00515829, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0145408
+GAMG:  Solving for p, Initial residual = 0.0450279, Final residual = 0.00401321, No Iterations 4
+time step continuity errors : sum local = 2.6985e-07, global = 3.80604e-18, cumulative = -4.28448e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0150081
+smoothSolver:  Solving for omega, Initial residual = 7.02213e-06, Final residual = 7.02213e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00880191, Final residual = 0.000618765, No Iterations 5
+ExecutionTime = 0.107002 s  ClockTime = 0 s
+
+Time = 41s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00033583, Final residual = 2.84624e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0848423, Final residual = 0.00519858, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0145403
+GAMG:  Solving for p, Initial residual = 0.0437787, Final residual = 0.00384228, No Iterations 4
+time step continuity errors : sum local = 2.4384e-07, global = -5.10721e-18, cumulative = -4.7952e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0149723
+smoothSolver:  Solving for omega, Initial residual = 7.02266e-06, Final residual = 7.02266e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00879605, Final residual = 0.000578979, No Iterations 5
+ExecutionTime = 0.110072 s  ClockTime = 0 s
+
+Time = 42s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000317075, Final residual = 2.69549e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0799386, Final residual = 0.0052248, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0145401
+GAMG:  Solving for p, Initial residual = 0.0426884, Final residual = 0.00327673, No Iterations 4
+time step continuity errors : sum local = 1.93e-07, global = 9.60081e-18, cumulative = -3.83512e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0149397
+smoothSolver:  Solving for omega, Initial residual = 7.02355e-06, Final residual = 7.02355e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00880588, Final residual = 0.000594489, No Iterations 5
+ExecutionTime = 0.112697 s  ClockTime = 0 s
+
+Time = 43s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000299691, Final residual = 2.55779e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0792186, Final residual = 0.00554468, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0145393
+GAMG:  Solving for p, Initial residual = 0.0422263, Final residual = 0.00380149, No Iterations 3
+time step continuity errors : sum local = 1.98647e-07, global = -1.08111e-17, cumulative = -4.91623e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0149098
+smoothSolver:  Solving for omega, Initial residual = 7.03114e-06, Final residual = 7.03114e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00878722, Final residual = 0.000549157, No Iterations 5
+ExecutionTime = 0.114882 s  ClockTime = 0 s
+
+Time = 44s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00028386, Final residual = 2.43503e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0771476, Final residual = 0.00588574, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.014539
+GAMG:  Solving for p, Initial residual = 0.0412313, Final residual = 0.00220142, No Iterations 4
+time step continuity errors : sum local = 1.1174e-07, global = -1.20368e-17, cumulative = -6.11991e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0148825
+smoothSolver:  Solving for omega, Initial residual = 7.03604e-06, Final residual = 7.03604e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0088233, Final residual = 0.000625008, No Iterations 5
+ExecutionTime = 0.117701 s  ClockTime = 0 s
+
+Time = 45s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000269186, Final residual = 2.32206e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.071144, Final residual = 0.0054006, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00002, pressure gradient = 0.0145378
+GAMG:  Solving for p, Initial residual = 0.0406012, Final residual = 0.00389055, No Iterations 3
+time step continuity errors : sum local = 1.72164e-07, global = 2.17591e-18, cumulative = -5.90232e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0148574
+smoothSolver:  Solving for omega, Initial residual = 7.03159e-06, Final residual = 7.03159e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00885519, Final residual = 0.000687024, No Iterations 5
+ExecutionTime = 0.12012 s  ClockTime = 0 s
+
+Time = 46s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000255714, Final residual = 2.21945e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.074599, Final residual = 0.00550832, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145366
+GAMG:  Solving for p, Initial residual = 0.0383559, Final residual = 0.00363329, No Iterations 3
+time step continuity errors : sum local = 1.51657e-07, global = 5.62078e-18, cumulative = -5.34024e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0148343
+smoothSolver:  Solving for omega, Initial residual = 7.03484e-06, Final residual = 7.03484e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00882658, Final residual = 0.000621371, No Iterations 5
+ExecutionTime = 0.123028 s  ClockTime = 0 s
+
+Time = 47s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000243525, Final residual = 2.1261e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0704656, Final residual = 0.00548387, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.014536
+GAMG:  Solving for p, Initial residual = 0.0361721, Final residual = 0.00318001, No Iterations 3
+time step continuity errors : sum local = 1.24433e-07, global = -8.39552e-19, cumulative = -5.42419e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014813
+smoothSolver:  Solving for omega, Initial residual = 7.0398e-06, Final residual = 7.0398e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00880658, Final residual = 0.000555728, No Iterations 5
+ExecutionTime = 0.12622 s  ClockTime = 0 s
+
+Time = 48s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000232538, Final residual = 2.04262e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0694939, Final residual = 0.00544437, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145351
+GAMG:  Solving for p, Initial residual = 0.0384376, Final residual = 0.00364962, No Iterations 3
+time step continuity errors : sum local = 1.33005e-07, global = 2.69128e-18, cumulative = -5.15506e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0147935
+smoothSolver:  Solving for omega, Initial residual = 7.03424e-06, Final residual = 7.03424e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00880979, Final residual = 0.000550668, No Iterations 5
+ExecutionTime = 0.13153 s  ClockTime = 0 s
+
+Time = 49s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000222498, Final residual = 1.96984e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0656141, Final residual = 0.00516711, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145337
+GAMG:  Solving for p, Initial residual = 0.0336102, Final residual = 0.00305961, No Iterations 3
+time step continuity errors : sum local = 1.05992e-07, global = 2.4162e-18, cumulative = -4.91344e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0147753
+smoothSolver:  Solving for omega, Initial residual = 7.03221e-06, Final residual = 7.03221e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00882946, Final residual = 0.000667581, No Iterations 5
+ExecutionTime = 0.134926 s  ClockTime = 0 s
+
+Time = 50s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000213308, Final residual = 1.90546e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0622613, Final residual = 0.0051049, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145323
+GAMG:  Solving for p, Initial residual = 0.0320281, Final residual = 0.0025524, No Iterations 3
+time step continuity errors : sum local = 8.26633e-08, global = -2.94313e-18, cumulative = -5.20776e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0147586
+smoothSolver:  Solving for omega, Initial residual = 7.0374e-06, Final residual = 7.0374e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00881403, Final residual = 0.000656304, No Iterations 5
+ExecutionTime = 0.137108 s  ClockTime = 0 s
+
+Time = 51s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000204959, Final residual = 1.84924e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0577191, Final residual = 0.00474643, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145312
+GAMG:  Solving for p, Initial residual = 0.0303816, Final residual = 0.00238787, No Iterations 3
+time step continuity errors : sum local = 7.408e-08, global = 7.7918e-18, cumulative = -4.42858e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014743
+smoothSolver:  Solving for omega, Initial residual = 7.04144e-06, Final residual = 7.04144e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00875719, Final residual = 0.000518026, No Iterations 5
+ExecutionTime = 0.139352 s  ClockTime = 0 s
+
+Time = 52s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000197351, Final residual = 1.80042e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0539634, Final residual = 0.00463495, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145302
+GAMG:  Solving for p, Initial residual = 0.027846, Final residual = 0.00202246, No Iterations 3
+time step continuity errors : sum local = 5.86611e-08, global = 1.87166e-18, cumulative = -4.24141e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0147287
+smoothSolver:  Solving for omega, Initial residual = 7.03989e-06, Final residual = 7.03989e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00879365, Final residual = 0.000601191, No Iterations 5
+ExecutionTime = 0.141647 s  ClockTime = 0 s
+
+Time = 53s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000190497, Final residual = 1.759e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0513414, Final residual = 0.00445315, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145286
+GAMG:  Solving for p, Initial residual = 0.0280767, Final residual = 0.00209911, No Iterations 3
+time step continuity errors : sum local = 5.86092e-08, global = 5.39662e-18, cumulative = -3.70175e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0147153
+smoothSolver:  Solving for omega, Initial residual = 7.03454e-06, Final residual = 7.03454e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00881275, Final residual = 0.000638661, No Iterations 5
+ExecutionTime = 0.143902 s  ClockTime = 0 s
+
+Time = 54s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000184438, Final residual = 1.72445e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0481152, Final residual = 0.00407613, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145273
+GAMG:  Solving for p, Initial residual = 0.0248584, Final residual = 0.00181427, No Iterations 3
+time step continuity errors : sum local = 4.87726e-08, global = -4.91914e-19, cumulative = -3.75094e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0147028
+smoothSolver:  Solving for omega, Initial residual = 7.03466e-06, Final residual = 7.03466e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00880183, Final residual = 0.00061222, No Iterations 5
+ExecutionTime = 0.146056 s  ClockTime = 0 s
+
+Time = 55s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000179125, Final residual = 1.69641e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0468107, Final residual = 0.00412618, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.014526
+GAMG:  Solving for p, Initial residual = 0.0236493, Final residual = 0.0019257, No Iterations 3
+time step continuity errors : sum local = 5.01282e-08, global = 6.42314e-18, cumulative = -3.10863e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146912
+smoothSolver:  Solving for omega, Initial residual = 7.02731e-06, Final residual = 7.02731e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0088002, Final residual = 0.000651114, No Iterations 5
+ExecutionTime = 0.148588 s  ClockTime = 0 s
+
+Time = 56s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000174633, Final residual = 1.6691e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0434207, Final residual = 0.00390149, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145248
+GAMG:  Solving for p, Initial residual = 0.022192, Final residual = 0.00203359, No Iterations 3
+time step continuity errors : sum local = 5.11622e-08, global = 1.6532e-18, cumulative = -2.94331e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146803
+smoothSolver:  Solving for omega, Initial residual = 7.03086e-06, Final residual = 7.03086e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00881996, Final residual = 0.000697633, No Iterations 5
+ExecutionTime = 0.151774 s  ClockTime = 0 s
+
+Time = 57s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000170474, Final residual = 1.64196e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0419733, Final residual = 0.00388011, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145236
+GAMG:  Solving for p, Initial residual = 0.0220278, Final residual = 0.00160761, No Iterations 4
+time step continuity errors : sum local = 3.97509e-08, global = -3.12608e-18, cumulative = -3.25591e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146702
+smoothSolver:  Solving for omega, Initial residual = 7.03772e-06, Final residual = 7.03772e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0087636, Final residual = 0.000528313, No Iterations 5
+ExecutionTime = 0.154079 s  ClockTime = 0 s
+
+Time = 58s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000166451, Final residual = 1.61481e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0406374, Final residual = 0.0036913, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145225
+GAMG:  Solving for p, Initial residual = 0.0211366, Final residual = 0.00172075, No Iterations 4
+time step continuity errors : sum local = 3.95511e-08, global = -1.58193e-17, cumulative = -4.83784e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146608
+smoothSolver:  Solving for omega, Initial residual = 7.03304e-06, Final residual = 7.03304e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00874252, Final residual = 0.000527568, No Iterations 5
+ExecutionTime = 0.158056 s  ClockTime = 0 s
+
+Time = 59s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000162552, Final residual = 1.58723e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0389787, Final residual = 0.0035855, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145211
+GAMG:  Solving for p, Initial residual = 0.0207024, Final residual = 0.00187838, No Iterations 3
+time step continuity errors : sum local = 4.26803e-08, global = 1.33153e-18, cumulative = -4.70469e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146519
+smoothSolver:  Solving for omega, Initial residual = 7.02952e-06, Final residual = 7.02952e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00877427, Final residual = 0.000665448, No Iterations 5
+ExecutionTime = 0.161523 s  ClockTime = 0 s
+
+Time = 60s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000158724, Final residual = 1.55946e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0380788, Final residual = 0.00364663, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145199
+GAMG:  Solving for p, Initial residual = 0.01957, Final residual = 0.00155552, No Iterations 4
+time step continuity errors : sum local = 3.38745e-08, global = 3.97135e-18, cumulative = -4.30755e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146436
+smoothSolver:  Solving for omega, Initial residual = 7.03367e-06, Final residual = 7.03367e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00873833, Final residual = 0.000552677, No Iterations 5
+ExecutionTime = 0.165284 s  ClockTime = 0 s
+
+Time = 61s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00015497, Final residual = 1.53187e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0366169, Final residual = 0.0033892, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145187
+GAMG:  Solving for p, Initial residual = 0.0181029, Final residual = 0.0016465, No Iterations 4
+time step continuity errors : sum local = 3.45493e-08, global = -4.06621e-18, cumulative = -4.71417e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146358
+smoothSolver:  Solving for omega, Initial residual = 7.03268e-06, Final residual = 7.03268e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00871154, Final residual = 0.000567634, No Iterations 5
+ExecutionTime = 0.168872 s  ClockTime = 0 s
+
+Time = 62s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000151302, Final residual = 1.50407e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0359126, Final residual = 0.00328538, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145175
+GAMG:  Solving for p, Initial residual = 0.0179836, Final residual = 0.00169426, No Iterations 3
+time step continuity errors : sum local = 3.53364e-08, global = -9.39975e-18, cumulative = -5.65415e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146285
+smoothSolver:  Solving for omega, Initial residual = 7.03203e-06, Final residual = 7.03203e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.008721, Final residual = 0.000626731, No Iterations 5
+ExecutionTime = 0.172934 s  ClockTime = 0 s
+
+Time = 63s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000147705, Final residual = 1.47613e-05, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0350694, Final residual = 0.00325103, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1.00001, pressure gradient = 0.0145162
+GAMG:  Solving for p, Initial residual = 0.0175932, Final residual = 0.00166833, No Iterations 4
+time step continuity errors : sum local = 3.30334e-08, global = 7.33503e-18, cumulative = -4.92064e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146215
+smoothSolver:  Solving for omega, Initial residual = 7.03404e-06, Final residual = 7.03404e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00874058, Final residual = 0.000630946, No Iterations 5
+ExecutionTime = 0.17676 s  ClockTime = 0 s
+
+Time = 64s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000144186, Final residual = 9.56005e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.035079, Final residual = 0.00307641, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145448
+GAMG:  Solving for p, Initial residual = 0.0538559, Final residual = 0.00429966, No Iterations 5
+time step continuity errors : sum local = 7.90914e-08, global = 2.86414e-18, cumulative = -4.63423e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146175
+smoothSolver:  Solving for omega, Initial residual = 7.03197e-06, Final residual = 7.03197e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0087268, Final residual = 0.000634994, No Iterations 5
+ExecutionTime = 0.179207 s  ClockTime = 0 s
+
+Time = 65s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000140517, Final residual = 9.33742e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.132443, Final residual = 0.00896649, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145326
+GAMG:  Solving for p, Initial residual = 0.0539342, Final residual = 0.00331346, No Iterations 6
+time step continuity errors : sum local = 5.7189e-08, global = -5.34616e-19, cumulative = -4.68769e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146121
+smoothSolver:  Solving for omega, Initial residual = 7.03209e-06, Final residual = 7.03209e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00869162, Final residual = 0.000528235, No Iterations 5
+ExecutionTime = 0.181573 s  ClockTime = 0 s
+
+Time = 66s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000137015, Final residual = 9.13435e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.179218, Final residual = 0.0120392, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.01453
+GAMG:  Solving for p, Initial residual = 0.0536787, Final residual = 0.00304051, No Iterations 6
+time step continuity errors : sum local = 4.68543e-08, global = -1.1522e-17, cumulative = -5.8399e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146068
+smoothSolver:  Solving for omega, Initial residual = 7.03082e-06, Final residual = 7.03082e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00867506, Final residual = 0.00058531, No Iterations 5
+ExecutionTime = 0.184071 s  ClockTime = 0 s
+
+Time = 67s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000133603, Final residual = 8.93716e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.163813, Final residual = 0.0122376, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145274
+GAMG:  Solving for p, Initial residual = 0.0491327, Final residual = 0.00272761, No Iterations 6
+time step continuity errors : sum local = 3.7958e-08, global = -7.58011e-18, cumulative = -6.59791e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0146016
+smoothSolver:  Solving for omega, Initial residual = 7.03243e-06, Final residual = 7.03243e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00868155, Final residual = 0.000634636, No Iterations 5
+ExecutionTime = 0.186891 s  ClockTime = 0 s
+
+Time = 68s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000130279, Final residual = 8.74415e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.126303, Final residual = 0.0108145, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145251
+GAMG:  Solving for p, Initial residual = 0.0413243, Final residual = 0.00255857, No Iterations 5
+time step continuity errors : sum local = 3.3443e-08, global = -5.76564e-19, cumulative = -6.65556e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145966
+smoothSolver:  Solving for omega, Initial residual = 7.03563e-06, Final residual = 7.03563e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00866009, Final residual = 0.000582946, No Iterations 5
+ExecutionTime = 0.189683 s  ClockTime = 0 s
+
+Time = 69s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000127044, Final residual = 8.5549e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.098529, Final residual = 0.00904101, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145232
+GAMG:  Solving for p, Initial residual = 0.0341916, Final residual = 0.00282963, No Iterations 5
+time step continuity errors : sum local = 3.24569e-08, global = 2.24566e-18, cumulative = -6.431e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145918
+smoothSolver:  Solving for omega, Initial residual = 7.03552e-06, Final residual = 7.03552e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00866408, Final residual = 0.000607221, No Iterations 5
+ExecutionTime = 0.192113 s  ClockTime = 0 s
+
+Time = 70s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000123879, Final residual = 8.36958e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0777764, Final residual = 0.00759555, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145215
+GAMG:  Solving for p, Initial residual = 0.0286237, Final residual = 0.00250416, No Iterations 4
+time step continuity errors : sum local = 2.66768e-08, global = 3.38324e-18, cumulative = -6.09267e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145872
+smoothSolver:  Solving for omega, Initial residual = 7.03631e-06, Final residual = 7.03631e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00861146, Final residual = 0.000501033, No Iterations 5
+ExecutionTime = 0.195544 s  ClockTime = 0 s
+
+Time = 71s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000120787, Final residual = 8.18668e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0651373, Final residual = 0.00359248, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145198
+GAMG:  Solving for p, Initial residual = 0.0243766, Final residual = 0.00168472, No Iterations 4
+time step continuity errors : sum local = 1.76344e-08, global = -2.58527e-18, cumulative = -6.3512e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145827
+smoothSolver:  Solving for omega, Initial residual = 7.03257e-06, Final residual = 7.03257e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00858875, Final residual = 0.000539562, No Iterations 5
+ExecutionTime = 0.198448 s  ClockTime = 0 s
+
+Time = 72s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000117771, Final residual = 8.00653e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.052416, Final residual = 0.00279751, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145182
+GAMG:  Solving for p, Initial residual = 0.0213944, Final residual = 0.0010986, No Iterations 4
+time step continuity errors : sum local = 1.08628e-08, global = -1.08618e-17, cumulative = -7.43738e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145785
+smoothSolver:  Solving for omega, Initial residual = 7.03354e-06, Final residual = 7.03354e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00863166, Final residual = 0.000660053, No Iterations 5
+ExecutionTime = 0.201021 s  ClockTime = 0 s
+
+Time = 73s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000114824, Final residual = 7.82886e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.044349, Final residual = 0.00415225, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145167
+GAMG:  Solving for p, Initial residual = 0.0187499, Final residual = 0.00136492, No Iterations 4
+time step continuity errors : sum local = 1.26933e-08, global = 1.24208e-17, cumulative = -6.1953e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145744
+smoothSolver:  Solving for omega, Initial residual = 7.0315e-06, Final residual = 7.0315e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00863031, Final residual = 0.000606897, No Iterations 5
+ExecutionTime = 0.204131 s  ClockTime = 0 s
+
+Time = 74s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000111949, Final residual = 7.65368e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0394854, Final residual = 0.00369019, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145152
+GAMG:  Solving for p, Initial residual = 0.0168321, Final residual = 0.00150701, No Iterations 4
+time step continuity errors : sum local = 1.40017e-08, global = -9.35922e-18, cumulative = -7.13122e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145706
+smoothSolver:  Solving for omega, Initial residual = 7.02783e-06, Final residual = 7.02783e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00860546, Final residual = 0.00056242, No Iterations 5
+ExecutionTime = 0.2071 s  ClockTime = 0 s
+
+Time = 75s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000109149, Final residual = 7.48084e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.036436, Final residual = 0.00338897, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145139
+GAMG:  Solving for p, Initial residual = 0.0156718, Final residual = 0.00136454, No Iterations 4
+time step continuity errors : sum local = 1.20931e-08, global = -7.30273e-18, cumulative = -7.86149e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145669
+smoothSolver:  Solving for omega, Initial residual = 7.02304e-06, Final residual = 7.02304e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00859497, Final residual = 0.000540195, No Iterations 5
+ExecutionTime = 0.210691 s  ClockTime = 0 s
+
+Time = 76s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000106442, Final residual = 7.3103e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0346728, Final residual = 0.00324204, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145125
+GAMG:  Solving for p, Initial residual = 0.0151235, Final residual = 0.000722586, No Iterations 4
+time step continuity errors : sum local = 6.37491e-09, global = -6.8157e-18, cumulative = -8.54306e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145633
+smoothSolver:  Solving for omega, Initial residual = 7.02368e-06, Final residual = 7.02368e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00858105, Final residual = 0.000580595, No Iterations 5
+ExecutionTime = 0.21416 s  ClockTime = 0 s
+
+Time = 77s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000103794, Final residual = 7.14241e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0344662, Final residual = 0.00316449, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145113
+GAMG:  Solving for p, Initial residual = 0.0137783, Final residual = 0.000600216, No Iterations 4
+time step continuity errors : sum local = 5.02657e-09, global = 2.26513e-18, cumulative = -8.31655e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.01456
+smoothSolver:  Solving for omega, Initial residual = 7.0274e-06, Final residual = 7.0274e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00859204, Final residual = 0.000653715, No Iterations 5
+ExecutionTime = 0.2165 s  ClockTime = 0 s
+
+Time = 78s
+
+smoothSolver:  Solving for Ux, Initial residual = 0.000101206, Final residual = 6.97738e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0333645, Final residual = 0.00303803, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.01451
+GAMG:  Solving for p, Initial residual = 0.0134354, Final residual = 0.000957675, No Iterations 4
+time step continuity errors : sum local = 7.94674e-09, global = 2.69012e-18, cumulative = -8.04754e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145567
+smoothSolver:  Solving for omega, Initial residual = 7.02759e-06, Final residual = 7.02759e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00854314, Final residual = 0.000527595, No Iterations 5
+ExecutionTime = 0.218728 s  ClockTime = 0 s
+
+Time = 79s
+
+smoothSolver:  Solving for Ux, Initial residual = 9.86722e-05, Final residual = 6.81597e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0324153, Final residual = 0.00289173, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145088
+GAMG:  Solving for p, Initial residual = 0.0129905, Final residual = 0.000946142, No Iterations 5
+time step continuity errors : sum local = 7.87266e-09, global = -1.19133e-17, cumulative = -9.23887e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145536
+smoothSolver:  Solving for omega, Initial residual = 7.02628e-06, Final residual = 7.02628e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00858291, Final residual = 0.00064392, No Iterations 5
+ExecutionTime = 0.220969 s  ClockTime = 0 s
+
+Time = 80s
+
+smoothSolver:  Solving for Ux, Initial residual = 9.61959e-05, Final residual = 6.65786e-06, No Iterations 6
+smoothSolver:  Solving for Uy, Initial residual = 0.0300837, Final residual = 0.00250778, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145076
+GAMG:  Solving for p, Initial residual = 0.0131284, Final residual = 0.00079468, No Iterations 5
+time step continuity errors : sum local = 6.73997e-09, global = 5.34097e-19, cumulative = -9.18546e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145507
+smoothSolver:  Solving for omega, Initial residual = 7.02711e-06, Final residual = 7.02711e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00854388, Final residual = 0.000581249, No Iterations 5
+ExecutionTime = 0.223267 s  ClockTime = 0 s
+
+Time = 81s
+
+smoothSolver:  Solving for Ux, Initial residual = 9.37747e-05, Final residual = 9.82817e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0297617, Final residual = 0.00239666, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144912
+GAMG:  Solving for p, Initial residual = 0.0440588, Final residual = 0.00358936, No Iterations 5
+time step continuity errors : sum local = 2.97557e-08, global = 2.77754e-19, cumulative = -9.15768e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145465
+smoothSolver:  Solving for omega, Initial residual = 7.02552e-06, Final residual = 7.02552e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00850387, Final residual = 0.000505936, No Iterations 5
+ExecutionTime = 0.225547 s  ClockTime = 0 s
+
+Time = 82s
+
+smoothSolver:  Solving for Ux, Initial residual = 9.15742e-05, Final residual = 9.62791e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0650124, Final residual = 0.00472891, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144956
+GAMG:  Solving for p, Initial residual = 0.0326477, Final residual = 0.00307086, No Iterations 6
+time step continuity errors : sum local = 2.6389e-08, global = -8.24117e-18, cumulative = -9.9818e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145433
+smoothSolver:  Solving for omega, Initial residual = 7.01993e-06, Final residual = 7.01993e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00852435, Final residual = 0.000572252, No Iterations 5
+ExecutionTime = 0.227835 s  ClockTime = 0 s
+
+Time = 83s
+
+smoothSolver:  Solving for Ux, Initial residual = 8.93846e-05, Final residual = 9.42177e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0775942, Final residual = 0.00593823, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144953
+GAMG:  Solving for p, Initial residual = 0.0261686, Final residual = 0.00244157, No Iterations 5
+time step continuity errors : sum local = 2.1773e-08, global = -5.36566e-18, cumulative = -1.05184e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145404
+smoothSolver:  Solving for omega, Initial residual = 7.02085e-06, Final residual = 7.02085e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00853885, Final residual = 0.000591887, No Iterations 5
+ExecutionTime = 0.230359 s  ClockTime = 0 s
+
+Time = 84s
+
+smoothSolver:  Solving for Ux, Initial residual = 8.72348e-05, Final residual = 9.21601e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0614134, Final residual = 0.00514139, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014495
+GAMG:  Solving for p, Initial residual = 0.0182652, Final residual = 0.00170696, No Iterations 6
+time step continuity errors : sum local = 1.67897e-08, global = -6.46862e-18, cumulative = -1.11652e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145378
+smoothSolver:  Solving for omega, Initial residual = 7.01738e-06, Final residual = 7.01738e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00853609, Final residual = 0.000617951, No Iterations 5
+ExecutionTime = 0.23266 s  ClockTime = 0 s
+
+Time = 85s
+
+smoothSolver:  Solving for Ux, Initial residual = 8.51219e-05, Final residual = 9.0114e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0417892, Final residual = 0.00398443, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144946
+GAMG:  Solving for p, Initial residual = 0.00990584, Final residual = 0.000853674, No Iterations 5
+time step continuity errors : sum local = 8.17146e-09, global = 5.81044e-18, cumulative = -1.05842e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145353
+smoothSolver:  Solving for omega, Initial residual = 7.01833e-06, Final residual = 7.01833e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0085249, Final residual = 0.000555989, No Iterations 5
+ExecutionTime = 0.23491 s  ClockTime = 0 s
+
+Time = 86s
+
+smoothSolver:  Solving for Ux, Initial residual = 8.30493e-05, Final residual = 8.80869e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0297142, Final residual = 0.00284766, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014494
+GAMG:  Solving for p, Initial residual = 0.00563121, Final residual = 0.000376511, No Iterations 3
+time step continuity errors : sum local = 3.76805e-09, global = -1.54289e-17, cumulative = -1.21271e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145329
+smoothSolver:  Solving for omega, Initial residual = 7.01764e-06, Final residual = 7.01764e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.008531, Final residual = 0.000612674, No Iterations 5
+ExecutionTime = 0.237147 s  ClockTime = 0 s
+
+Time = 87s
+
+smoothSolver:  Solving for Ux, Initial residual = 8.10179e-05, Final residual = 8.60832e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0204132, Final residual = 0.00111827, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144935
+GAMG:  Solving for p, Initial residual = 0.00713934, Final residual = 0.000533852, No Iterations 5
+time step continuity errors : sum local = 5.27926e-09, global = 2.27812e-18, cumulative = -1.18993e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145307
+smoothSolver:  Solving for omega, Initial residual = 7.01336e-06, Final residual = 7.01336e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00851129, Final residual = 0.000559477, No Iterations 5
+ExecutionTime = 0.239412 s  ClockTime = 0 s
+
+Time = 88s
+
+smoothSolver:  Solving for Ux, Initial residual = 7.90266e-05, Final residual = 8.41097e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.021727, Final residual = 0.00209774, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144929
+GAMG:  Solving for p, Initial residual = 0.00914583, Final residual = 0.000714451, No Iterations 6
+time step continuity errors : sum local = 7.46634e-09, global = 4.95301e-18, cumulative = -1.1404e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145285
+smoothSolver:  Solving for omega, Initial residual = 7.01113e-06, Final residual = 7.01113e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00848082, Final residual = 0.000522222, No Iterations 5
+ExecutionTime = 0.241736 s  ClockTime = 0 s
+
+Time = 89s
+
+smoothSolver:  Solving for Ux, Initial residual = 7.70762e-05, Final residual = 8.2169e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0258117, Final residual = 0.00219937, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144923
+GAMG:  Solving for p, Initial residual = 0.0108898, Final residual = 0.000945818, No Iterations 6
+time step continuity errors : sum local = 9.46493e-09, global = -4.62048e-18, cumulative = -1.1866e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145265
+smoothSolver:  Solving for omega, Initial residual = 7.0146e-06, Final residual = 7.0146e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00849952, Final residual = 0.000610994, No Iterations 5
+ExecutionTime = 0.244517 s  ClockTime = 0 s
+
+Time = 90s
+
+smoothSolver:  Solving for Ux, Initial residual = 7.51689e-05, Final residual = 8.02592e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0277765, Final residual = 0.00219982, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144917
+GAMG:  Solving for p, Initial residual = 0.0122569, Final residual = 0.00103191, No Iterations 6
+time step continuity errors : sum local = 1.00696e-08, global = -9.05637e-18, cumulative = -1.27716e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145246
+smoothSolver:  Solving for omega, Initial residual = 7.01526e-06, Final residual = 7.01526e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00850186, Final residual = 0.000620753, No Iterations 5
+ExecutionTime = 0.247222 s  ClockTime = 0 s
+
+Time = 91s
+
+smoothSolver:  Solving for Ux, Initial residual = 7.33027e-05, Final residual = 7.83802e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0286143, Final residual = 0.00212806, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144911
+GAMG:  Solving for p, Initial residual = 0.01311, Final residual = 0.00112772, No Iterations 6
+time step continuity errors : sum local = 1.06143e-08, global = 4.39198e-18, cumulative = -1.23324e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145227
+smoothSolver:  Solving for omega, Initial residual = 7.01494e-06, Final residual = 7.01494e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00847774, Final residual = 0.000515191, No Iterations 5
+ExecutionTime = 0.249591 s  ClockTime = 0 s
+
+Time = 92s
+
+smoothSolver:  Solving for Ux, Initial residual = 7.14776e-05, Final residual = 7.65334e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0286918, Final residual = 0.00209095, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144905
+GAMG:  Solving for p, Initial residual = 0.0136082, Final residual = 0.00112896, No Iterations 6
+time step continuity errors : sum local = 1.03058e-08, global = -4.22444e-18, cumulative = -1.27549e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014521
+smoothSolver:  Solving for omega, Initial residual = 7.01219e-06, Final residual = 7.01219e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00845313, Final residual = 0.000529469, No Iterations 5
+ExecutionTime = 0.251863 s  ClockTime = 0 s
+
+Time = 93s
+
+smoothSolver:  Solving for Ux, Initial residual = 6.96936e-05, Final residual = 7.47197e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0291384, Final residual = 0.0021378, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.01449
+GAMG:  Solving for p, Initial residual = 0.0136965, Final residual = 0.00113562, No Iterations 6
+time step continuity errors : sum local = 1.00198e-08, global = 4.01664e-18, cumulative = -1.23532e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145193
+smoothSolver:  Solving for omega, Initial residual = 7.01272e-06, Final residual = 7.01272e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00849161, Final residual = 0.000653867, No Iterations 5
+ExecutionTime = 0.254084 s  ClockTime = 0 s
+
+Time = 94s
+
+smoothSolver:  Solving for Ux, Initial residual = 6.79625e-05, Final residual = 7.29399e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0291397, Final residual = 0.00220845, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144894
+GAMG:  Solving for p, Initial residual = 0.0137342, Final residual = 0.0010701, No Iterations 6
+time step continuity errors : sum local = 9.17462e-09, global = -4.08725e-18, cumulative = -1.2762e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145176
+smoothSolver:  Solving for omega, Initial residual = 7.01213e-06, Final residual = 7.01213e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00846666, Final residual = 0.00059306, No Iterations 5
+ExecutionTime = 0.256914 s  ClockTime = 0 s
+
+Time = 95s
+
+smoothSolver:  Solving for Ux, Initial residual = 6.62739e-05, Final residual = 7.11944e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0290694, Final residual = 0.00234291, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144888
+GAMG:  Solving for p, Initial residual = 0.0136762, Final residual = 0.00101032, No Iterations 6
+time step continuity errors : sum local = 8.41017e-09, global = -5.38153e-19, cumulative = -1.28158e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145161
+smoothSolver:  Solving for omega, Initial residual = 7.01139e-06, Final residual = 7.01139e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00846278, Final residual = 0.00059619, No Iterations 5
+ExecutionTime = 0.259336 s  ClockTime = 0 s
+
+Time = 96s
+
+smoothSolver:  Solving for Ux, Initial residual = 6.46233e-05, Final residual = 6.94832e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0291023, Final residual = 0.00242673, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144883
+GAMG:  Solving for p, Initial residual = 0.0135168, Final residual = 0.00095943, No Iterations 6
+time step continuity errors : sum local = 7.74415e-09, global = 6.06483e-18, cumulative = -1.22093e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145146
+smoothSolver:  Solving for omega, Initial residual = 7.00872e-06, Final residual = 7.00872e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00846041, Final residual = 0.000606878, No Iterations 5
+ExecutionTime = 0.261747 s  ClockTime = 0 s
+
+Time = 97s
+
+smoothSolver:  Solving for Ux, Initial residual = 6.30102e-05, Final residual = 6.7806e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0291778, Final residual = 0.00248681, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144878
+GAMG:  Solving for p, Initial residual = 0.0133226, Final residual = 0.000932381, No Iterations 6
+time step continuity errors : sum local = 7.32033e-09, global = -3.08243e-18, cumulative = -1.25175e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145131
+smoothSolver:  Solving for omega, Initial residual = 7.01096e-06, Final residual = 7.01096e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00844918, Final residual = 0.000565507, No Iterations 5
+ExecutionTime = 0.264301 s  ClockTime = 0 s
+
+Time = 98s
+
+smoothSolver:  Solving for Ux, Initial residual = 6.14344e-05, Final residual = 6.6163e-06, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 0.0291937, Final residual = 0.00252607, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144873
+GAMG:  Solving for p, Initial residual = 0.013205, Final residual = 0.00101245, No Iterations 6
+time step continuity errors : sum local = 7.45657e-09, global = -1.48726e-17, cumulative = -1.40048e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145118
+smoothSolver:  Solving for omega, Initial residual = 7.01548e-06, Final residual = 7.01548e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00842358, Final residual = 0.00052547, No Iterations 5
+ExecutionTime = 0.26647 s  ClockTime = 0 s
+
+Time = 99s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.98954e-05, Final residual = 9.76981e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0292833, Final residual = 0.00254244, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144755
+GAMG:  Solving for p, Initial residual = 0.0430394, Final residual = 0.00214237, No Iterations 4
+time step continuity errors : sum local = 1.58429e-08, global = -3.2607e-18, cumulative = -1.43309e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145091
+smoothSolver:  Solving for omega, Initial residual = 7.00918e-06, Final residual = 7.00918e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00844938, Final residual = 0.000643471, No Iterations 5
+ExecutionTime = 0.268516 s  ClockTime = 0 s
+
+Time = 100s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.854e-05, Final residual = 9.57471e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0607619, Final residual = 0.00439996, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144799
+GAMG:  Solving for p, Initial residual = 0.0331157, Final residual = 0.00264718, No Iterations 4
+time step continuity errors : sum local = 2.17316e-08, global = -1.3119e-17, cumulative = -1.56428e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145074
+smoothSolver:  Solving for omega, Initial residual = 7.01171e-06, Final residual = 7.01171e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00841632, Final residual = 0.000578138, No Iterations 5
+ExecutionTime = 0.270631 s  ClockTime = 0 s
+
+Time = 101s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.71878e-05, Final residual = 9.37146e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0738166, Final residual = 0.00539441, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144801
+GAMG:  Solving for p, Initial residual = 0.027295, Final residual = 0.0018937, No Iterations 5
+time step continuity errors : sum local = 1.57112e-08, global = 6.80782e-18, cumulative = -1.4962e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145059
+smoothSolver:  Solving for omega, Initial residual = 7.01635e-06, Final residual = 7.01635e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00840691, Final residual = 0.000543244, No Iterations 5
+ExecutionTime = 0.27278 s  ClockTime = 0 s
+
+Time = 102s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.58604e-05, Final residual = 9.16848e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0599695, Final residual = 0.00482303, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144801
+GAMG:  Solving for p, Initial residual = 0.0194809, Final residual = 0.00144145, No Iterations 5
+time step continuity errors : sum local = 1.22307e-08, global = 4.92638e-18, cumulative = -1.44693e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145045
+smoothSolver:  Solving for omega, Initial residual = 7.01626e-06, Final residual = 7.01626e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00841086, Final residual = 0.000576819, No Iterations 5
+ExecutionTime = 0.274915 s  ClockTime = 0 s
+
+Time = 103s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.4557e-05, Final residual = 8.96677e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0403155, Final residual = 0.00369965, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144801
+GAMG:  Solving for p, Initial residual = 0.0116037, Final residual = 0.000801262, No Iterations 6
+time step continuity errors : sum local = 7.07097e-09, global = 3.64043e-19, cumulative = -1.44329e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145032
+smoothSolver:  Solving for omega, Initial residual = 7.01763e-06, Final residual = 7.01763e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00841821, Final residual = 0.000592196, No Iterations 5
+ExecutionTime = 0.277195 s  ClockTime = 0 s
+
+Time = 104s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.32787e-05, Final residual = 8.76712e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0271468, Final residual = 0.00267946, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144799
+GAMG:  Solving for p, Initial residual = 0.0063989, Final residual = 0.000524894, No Iterations 3
+time step continuity errors : sum local = 4.95616e-09, global = -4.82538e-18, cumulative = -1.49155e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014502
+smoothSolver:  Solving for omega, Initial residual = 7.01375e-06, Final residual = 7.01375e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0084266, Final residual = 0.000620929, No Iterations 5
+ExecutionTime = 0.279682 s  ClockTime = 0 s
+
+Time = 105s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.20251e-05, Final residual = 8.56998e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0188093, Final residual = 0.00180627, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144797
+GAMG:  Solving for p, Initial residual = 0.0064571, Final residual = 0.000484745, No Iterations 4
+time step continuity errors : sum local = 4.45497e-09, global = -4.20153e-18, cumulative = -1.53356e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0145009
+smoothSolver:  Solving for omega, Initial residual = 7.01284e-06, Final residual = 7.01284e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00840248, Final residual = 0.000576106, No Iterations 5
+ExecutionTime = 0.281965 s  ClockTime = 0 s
+
+Time = 106s
+
+smoothSolver:  Solving for Ux, Initial residual = 5.07964e-05, Final residual = 8.37558e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.016296, Final residual = 0.000848095, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144795
+GAMG:  Solving for p, Initial residual = 0.00831383, Final residual = 0.00072669, No Iterations 5
+time step continuity errors : sum local = 6.47665e-09, global = 4.29178e-18, cumulative = -1.49065e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144999
+smoothSolver:  Solving for omega, Initial residual = 7.01751e-06, Final residual = 7.01751e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00838346, Final residual = 0.000564784, No Iterations 5
+ExecutionTime = 0.284173 s  ClockTime = 0 s
+
+Time = 107s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.95926e-05, Final residual = 8.18422e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0196519, Final residual = 0.00171614, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144793
+GAMG:  Solving for p, Initial residual = 0.00960327, Final residual = 0.000880956, No Iterations 6
+time step continuity errors : sum local = 8.00206e-09, global = 5.42846e-18, cumulative = -1.43636e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144989
+smoothSolver:  Solving for omega, Initial residual = 7.01437e-06, Final residual = 7.01437e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00836424, Final residual = 0.000506003, No Iterations 5
+ExecutionTime = 0.286484 s  ClockTime = 0 s
+
+Time = 108s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.84141e-05, Final residual = 7.99609e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0228796, Final residual = 0.00184754, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014479
+GAMG:  Solving for p, Initial residual = 0.0105507, Final residual = 0.000935124, No Iterations 5
+time step continuity errors : sum local = 8.01813e-09, global = -3.90362e-19, cumulative = -1.44026e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144979
+smoothSolver:  Solving for omega, Initial residual = 7.01019e-06, Final residual = 7.01019e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00835209, Final residual = 0.000508276, No Iterations 5
+ExecutionTime = 0.28877 s  ClockTime = 0 s
+
+Time = 109s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.72605e-05, Final residual = 7.81128e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0241535, Final residual = 0.00184364, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144788
+GAMG:  Solving for p, Initial residual = 0.0116734, Final residual = 0.00104317, No Iterations 6
+time step continuity errors : sum local = 9.14931e-09, global = -1.21701e-18, cumulative = -1.45243e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014497
+smoothSolver:  Solving for omega, Initial residual = 7.01484e-06, Final residual = 7.01484e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00837877, Final residual = 0.000536581, No Iterations 5
+ExecutionTime = 0.291157 s  ClockTime = 0 s
+
+Time = 110s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.61318e-05, Final residual = 7.62991e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0259003, Final residual = 0.00193344, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144785
+GAMG:  Solving for p, Initial residual = 0.0121822, Final residual = 0.00110388, No Iterations 5
+time step continuity errors : sum local = 8.97103e-09, global = -9.58254e-20, cumulative = -1.45339e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144962
+smoothSolver:  Solving for omega, Initial residual = 7.01393e-06, Final residual = 7.01393e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00835514, Final residual = 0.000491357, No Iterations 5
+ExecutionTime = 0.293578 s  ClockTime = 0 s
+
+Time = 111s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.50277e-05, Final residual = 7.45203e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0264555, Final residual = 0.00200734, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144783
+GAMG:  Solving for p, Initial residual = 0.0128829, Final residual = 0.00120075, No Iterations 5
+time step continuity errors : sum local = 9.46937e-09, global = 1.00042e-17, cumulative = -1.35335e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144953
+smoothSolver:  Solving for omega, Initial residual = 7.0107e-06, Final residual = 7.0107e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00835324, Final residual = 0.000579468, No Iterations 5
+ExecutionTime = 0.296322 s  ClockTime = 0 s
+
+Time = 112s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.39481e-05, Final residual = 7.27765e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0270353, Final residual = 0.00208283, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144781
+GAMG:  Solving for p, Initial residual = 0.0132005, Final residual = 0.000983424, No Iterations 6
+time step continuity errors : sum local = 8.02103e-09, global = 6.49917e-18, cumulative = -1.28836e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144945
+smoothSolver:  Solving for omega, Initial residual = 7.01592e-06, Final residual = 7.01592e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00839074, Final residual = 0.000708124, No Iterations 5
+ExecutionTime = 0.29888 s  ClockTime = 0 s
+
+Time = 113s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.28926e-05, Final residual = 7.10682e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0283615, Final residual = 0.00217578, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144778
+GAMG:  Solving for p, Initial residual = 0.0131272, Final residual = 0.00086893, No Iterations 6
+time step continuity errors : sum local = 6.89313e-09, global = -7.71805e-18, cumulative = -1.36554e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144938
+smoothSolver:  Solving for omega, Initial residual = 7.01475e-06, Final residual = 7.01475e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00834191, Final residual = 0.000504887, No Iterations 5
+ExecutionTime = 0.30123 s  ClockTime = 0 s
+
+Time = 114s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.1861e-05, Final residual = 6.93963e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0284647, Final residual = 0.00221457, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144776
+GAMG:  Solving for p, Initial residual = 0.0131144, Final residual = 0.000813682, No Iterations 6
+time step continuity errors : sum local = 6.3168e-09, global = 8.11329e-18, cumulative = -1.28441e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014493
+smoothSolver:  Solving for omega, Initial residual = 7.00772e-06, Final residual = 7.00772e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00832012, Final residual = 0.000808052, No Iterations 4
+ExecutionTime = 0.303546 s  ClockTime = 0 s
+
+Time = 115s
+
+smoothSolver:  Solving for Ux, Initial residual = 4.08528e-05, Final residual = 6.77623e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0284179, Final residual = 0.00227882, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144774
+GAMG:  Solving for p, Initial residual = 0.0130853, Final residual = 0.000840369, No Iterations 6
+time step continuity errors : sum local = 6.35199e-09, global = 6.94131e-18, cumulative = -1.21499e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144923
+smoothSolver:  Solving for omega, Initial residual = 7.007e-06, Final residual = 7.007e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00835833, Final residual = 0.000617651, No Iterations 5
+ExecutionTime = 0.306108 s  ClockTime = 0 s
+
+Time = 116s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.98677e-05, Final residual = 6.61645e-06, No Iterations 4
+smoothSolver:  Solving for Uy, Initial residual = 0.0283962, Final residual = 0.00235328, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144771
+GAMG:  Solving for p, Initial residual = 0.0130202, Final residual = 0.000869692, No Iterations 6
+time step continuity errors : sum local = 6.39294e-09, global = -1.80393e-17, cumulative = -1.39539e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144916
+smoothSolver:  Solving for omega, Initial residual = 7.00855e-06, Final residual = 7.00855e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00837116, Final residual = 0.000608133, No Iterations 5
+ExecutionTime = 0.31007 s  ClockTime = 0 s
+
+Time = 117s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.89053e-05, Final residual = 9.79947e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0284197, Final residual = 0.00239883, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144685
+GAMG:  Solving for p, Initial residual = 0.0447597, Final residual = 0.00198658, No Iterations 4
+time step continuity errors : sum local = 1.47371e-08, global = -9.16678e-19, cumulative = -1.40455e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144895
+smoothSolver:  Solving for omega, Initial residual = 7.00984e-06, Final residual = 7.00984e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00836698, Final residual = 0.000555156, No Iterations 5
+ExecutionTime = 0.313849 s  ClockTime = 0 s
+
+Time = 118s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.8117e-05, Final residual = 9.63188e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0642982, Final residual = 0.00467724, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014473
+GAMG:  Solving for p, Initial residual = 0.0370875, Final residual = 0.00163122, No Iterations 4
+time step continuity errors : sum local = 1.27457e-08, global = -8.33628e-18, cumulative = -1.48792e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144884
+smoothSolver:  Solving for omega, Initial residual = 7.00506e-06, Final residual = 7.00506e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00833388, Final residual = 0.000498401, No Iterations 5
+ExecutionTime = 0.317578 s  ClockTime = 0 s
+
+Time = 119s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.73134e-05, Final residual = 9.44832e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.077315, Final residual = 0.00557787, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144733
+GAMG:  Solving for p, Initial residual = 0.0300699, Final residual = 0.00125038, No Iterations 4
+time step continuity errors : sum local = 1.00617e-08, global = 4.33992e-18, cumulative = -1.44452e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144875
+smoothSolver:  Solving for omega, Initial residual = 7.00381e-06, Final residual = 7.00381e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00835059, Final residual = 0.000572071, No Iterations 5
+ExecutionTime = 0.32129 s  ClockTime = 0 s
+
+Time = 120s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.65215e-05, Final residual = 9.26298e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0621248, Final residual = 0.00473325, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144735
+GAMG:  Solving for p, Initial residual = 0.0218443, Final residual = 0.00160219, No Iterations 5
+time step continuity errors : sum local = 1.2862e-08, global = 1.52987e-18, cumulative = -1.42922e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144867
+smoothSolver:  Solving for omega, Initial residual = 7.00542e-06, Final residual = 7.00542e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00837422, Final residual = 0.000644243, No Iterations 5
+ExecutionTime = 0.324051 s  ClockTime = 0 s
+
+Time = 121s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.5742e-05, Final residual = 9.0776e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0422524, Final residual = 0.00345405, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144736
+GAMG:  Solving for p, Initial residual = 0.0138477, Final residual = 0.00120348, No Iterations 5
+time step continuity errors : sum local = 1.04561e-08, global = 3.09987e-20, cumulative = -1.42891e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014486
+smoothSolver:  Solving for omega, Initial residual = 7.00649e-06, Final residual = 7.00649e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00834588, Final residual = 0.00056895, No Iterations 5
+ExecutionTime = 0.326456 s  ClockTime = 0 s
+
+Time = 122s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.4975e-05, Final residual = 8.89307e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0266291, Final residual = 0.00244627, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144736
+GAMG:  Solving for p, Initial residual = 0.00871225, Final residual = 0.000823634, No Iterations 4
+time step continuity errors : sum local = 7.12635e-09, global = 1.40598e-17, cumulative = -1.28831e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144854
+smoothSolver:  Solving for omega, Initial residual = 7.005e-06, Final residual = 7.005e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00833125, Final residual = 0.000530212, No Iterations 5
+ExecutionTime = 0.328914 s  ClockTime = 0 s
+
+Time = 123s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.42212e-05, Final residual = 8.71008e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0184289, Final residual = 0.00173253, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144735
+GAMG:  Solving for p, Initial residual = 0.00754766, Final residual = 0.000674264, No Iterations 3
+time step continuity errors : sum local = 5.9046e-09, global = 4.18082e-18, cumulative = -1.2465e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144848
+smoothSolver:  Solving for omega, Initial residual = 7.00387e-06, Final residual = 7.00387e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00837248, Final residual = 0.000630587, No Iterations 5
+ExecutionTime = 0.3312 s  ClockTime = 0 s
+
+Time = 124s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.34806e-05, Final residual = 8.52905e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0118846, Final residual = 0.00065149, No Iterations 4
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144735
+GAMG:  Solving for p, Initial residual = 0.0081812, Final residual = 0.000672988, No Iterations 4
+time step continuity errors : sum local = 5.73203e-09, global = 4.17911e-18, cumulative = -1.20471e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144843
+smoothSolver:  Solving for omega, Initial residual = 7.00465e-06, Final residual = 7.00465e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00838194, Final residual = 0.000678916, No Iterations 5
+ExecutionTime = 0.333448 s  ClockTime = 0 s
+
+Time = 125s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.27533e-05, Final residual = 8.35025e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0133961, Final residual = 0.00128399, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144734
+GAMG:  Solving for p, Initial residual = 0.00907294, Final residual = 0.00085036, No Iterations 4
+time step continuity errors : sum local = 7.59817e-09, global = 2.91631e-18, cumulative = -1.17555e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144838
+smoothSolver:  Solving for omega, Initial residual = 7.00541e-06, Final residual = 7.00541e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00835621, Final residual = 0.000545339, No Iterations 5
+ExecutionTime = 0.335661 s  ClockTime = 0 s
+
+Time = 126s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.20395e-05, Final residual = 8.174e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0165578, Final residual = 0.00137298, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144733
+GAMG:  Solving for p, Initial residual = 0.00979592, Final residual = 0.0007678, No Iterations 5
+time step continuity errors : sum local = 6.53388e-09, global = 3.24125e-18, cumulative = -1.14314e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144833
+smoothSolver:  Solving for omega, Initial residual = 7.0024e-06, Final residual = 7.0024e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00832026, Final residual = 0.000499397, No Iterations 5
+ExecutionTime = 0.338181 s  ClockTime = 0 s
+
+Time = 127s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.13391e-05, Final residual = 8.00077e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0192523, Final residual = 0.00144978, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144732
+GAMG:  Solving for p, Initial residual = 0.0103976, Final residual = 0.000970118, No Iterations 5
+time step continuity errors : sum local = 7.90562e-09, global = -6.1105e-18, cumulative = -1.20424e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144828
+smoothSolver:  Solving for omega, Initial residual = 7.0036e-06, Final residual = 7.0036e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00832842, Final residual = 0.000543962, No Iterations 5
+ExecutionTime = 0.341443 s  ClockTime = 0 s
+
+Time = 128s
+
+smoothSolver:  Solving for Ux, Initial residual = 3.06523e-05, Final residual = 7.83058e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0209717, Final residual = 0.00158412, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144731
+GAMG:  Solving for p, Initial residual = 0.0111565, Final residual = 0.0010014, No Iterations 5
+time step continuity errors : sum local = 8.00612e-09, global = 1.1798e-17, cumulative = -1.08626e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144824
+smoothSolver:  Solving for omega, Initial residual = 7.00257e-06, Final residual = 7.00257e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00830103, Final residual = 0.000480384, No Iterations 5
+ExecutionTime = 0.345085 s  ClockTime = 0 s
+
+Time = 129s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.9979e-05, Final residual = 7.66329e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0226863, Final residual = 0.00174924, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014473
+GAMG:  Solving for p, Initial residual = 0.0118037, Final residual = 0.000902985, No Iterations 5
+time step continuity errors : sum local = 7.79866e-09, global = 1.13888e-18, cumulative = -1.07487e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014482
+smoothSolver:  Solving for omega, Initial residual = 7.00183e-06, Final residual = 7.00183e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00833411, Final residual = 0.00056039, No Iterations 5
+ExecutionTime = 0.348943 s  ClockTime = 0 s
+
+Time = 130s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.93192e-05, Final residual = 7.49892e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0245771, Final residual = 0.0018788, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144729
+GAMG:  Solving for p, Initial residual = 0.0122125, Final residual = 0.00107424, No Iterations 5
+time step continuity errors : sum local = 8.35807e-09, global = 3.43086e-18, cumulative = -1.04056e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144816
+smoothSolver:  Solving for omega, Initial residual = 7.00163e-06, Final residual = 7.00163e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00830481, Final residual = 0.000494653, No Iterations 5
+ExecutionTime = 0.352636 s  ClockTime = 0 s
+
+Time = 131s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.86728e-05, Final residual = 7.33751e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0257116, Final residual = 0.00198233, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144728
+GAMG:  Solving for p, Initial residual = 0.0124568, Final residual = 0.000982908, No Iterations 5
+time step continuity errors : sum local = 8.13793e-09, global = 1.43493e-18, cumulative = -1.02621e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144812
+smoothSolver:  Solving for omega, Initial residual = 6.99969e-06, Final residual = 6.99969e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00829957, Final residual = 0.000541622, No Iterations 5
+ExecutionTime = 0.35507 s  ClockTime = 0 s
+
+Time = 132s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.80396e-05, Final residual = 7.17908e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0264944, Final residual = 0.00202427, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144727
+GAMG:  Solving for p, Initial residual = 0.0125521, Final residual = 0.00071349, No Iterations 6
+time step continuity errors : sum local = 5.59964e-09, global = -9.83011e-18, cumulative = -1.12451e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144809
+smoothSolver:  Solving for omega, Initial residual = 6.99932e-06, Final residual = 6.99932e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00833956, Final residual = 0.000701879, No Iterations 5
+ExecutionTime = 0.35732 s  ClockTime = 0 s
+
+Time = 133s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.74196e-05, Final residual = 7.02364e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.026791, Final residual = 0.00209957, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144726
+GAMG:  Solving for p, Initial residual = 0.0125721, Final residual = 0.00118268, No Iterations 5
+time step continuity errors : sum local = 8.54383e-09, global = -3.70186e-18, cumulative = -1.16153e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144805
+smoothSolver:  Solving for omega, Initial residual = 7.00068e-06, Final residual = 7.00068e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00829388, Final residual = 0.000543155, No Iterations 5
+ExecutionTime = 0.35953 s  ClockTime = 0 s
+
+Time = 134s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.68126e-05, Final residual = 6.87118e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0271702, Final residual = 0.00207629, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144725
+GAMG:  Solving for p, Initial residual = 0.012546, Final residual = 0.00119214, No Iterations 5
+time step continuity errors : sum local = 8.41649e-09, global = 5.12625e-20, cumulative = -1.16102e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144802
+smoothSolver:  Solving for omega, Initial residual = 7.00674e-06, Final residual = 7.00674e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0082755, Final residual = 0.000511651, No Iterations 5
+ExecutionTime = 0.362469 s  ClockTime = 0 s
+
+Time = 135s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.62184e-05, Final residual = 6.72169e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0271222, Final residual = 0.0021096, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144724
+GAMG:  Solving for p, Initial residual = 0.01247, Final residual = 0.00120331, No Iterations 5
+time step continuity errors : sum local = 8.28579e-09, global = -4.15591e-18, cumulative = -1.20258e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144798
+smoothSolver:  Solving for omega, Initial residual = 7.00727e-06, Final residual = 7.00727e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00828085, Final residual = 0.000512702, No Iterations 5
+ExecutionTime = 0.366045 s  ClockTime = 0 s
+
+Time = 136s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.56368e-05, Final residual = 6.57516e-06, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0271306, Final residual = 0.00214091, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144723
+GAMG:  Solving for p, Initial residual = 0.0123737, Final residual = 0.0012163, No Iterations 5
+time step continuity errors : sum local = 8.15693e-09, global = 3.68307e-18, cumulative = -1.16575e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144795
+smoothSolver:  Solving for omega, Initial residual = 7.00159e-06, Final residual = 7.00159e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00825498, Final residual = 0.000818518, No Iterations 4
+ExecutionTime = 0.368855 s  ClockTime = 0 s
+
+Time = 137s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.50675e-05, Final residual = 9.8036e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0270685, Final residual = 0.00215152, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144662
+GAMG:  Solving for p, Initial residual = 0.0407951, Final residual = 0.00322345, No Iterations 4
+time step continuity errors : sum local = 2.23582e-08, global = 1.12184e-17, cumulative = -1.05357e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144774
+smoothSolver:  Solving for omega, Initial residual = 7.00377e-06, Final residual = 7.00377e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00830031, Final residual = 0.00063901, No Iterations 5
+ExecutionTime = 0.371288 s  ClockTime = 0 s
+
+Time = 138s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.46724e-05, Final residual = 9.68519e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0647511, Final residual = 0.00482689, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144708
+GAMG:  Solving for p, Initial residual = 0.0389402, Final residual = 0.00298883, No Iterations 5
+time step continuity errors : sum local = 2.3583e-08, global = -3.70641e-18, cumulative = -1.09063e-16
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144767
+smoothSolver:  Solving for omega, Initial residual = 7.00801e-06, Final residual = 7.00801e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0082921, Final residual = 0.000610745, No Iterations 5
+ExecutionTime = 0.373501 s  ClockTime = 0 s
+
+Time = 139s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.42407e-05, Final residual = 9.53876e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0804498, Final residual = 0.00539379, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144711
+GAMG:  Solving for p, Initial residual = 0.0315315, Final residual = 0.00227923, No Iterations 4
+time step continuity errors : sum local = 1.75849e-08, global = 1.28657e-17, cumulative = -9.61973e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144762
+smoothSolver:  Solving for omega, Initial residual = 7.01189e-06, Final residual = 7.01189e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00828538, Final residual = 0.000570445, No Iterations 5
+ExecutionTime = 0.375885 s  ClockTime = 0 s
+
+Time = 140s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.38113e-05, Final residual = 9.38697e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0649421, Final residual = 0.00443022, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144712
+GAMG:  Solving for p, Initial residual = 0.0237258, Final residual = 0.00107504, No Iterations 4
+time step continuity errors : sum local = 8.44431e-09, global = 2.68298e-18, cumulative = -9.35143e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144757
+smoothSolver:  Solving for omega, Initial residual = 7.00875e-06, Final residual = 7.00875e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00825132, Final residual = 0.000489315, No Iterations 5
+ExecutionTime = 0.378502 s  ClockTime = 0 s
+
+Time = 141s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.33859e-05, Final residual = 9.23291e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0454459, Final residual = 0.00324638, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144713
+GAMG:  Solving for p, Initial residual = 0.0157427, Final residual = 0.00127377, No Iterations 5
+time step continuity errors : sum local = 1.04924e-08, global = 1.68369e-18, cumulative = -9.18306e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144754
+smoothSolver:  Solving for omega, Initial residual = 7.0068e-06, Final residual = 7.0068e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.0082889, Final residual = 0.000551625, No Iterations 5
+ExecutionTime = 0.382128 s  ClockTime = 0 s
+
+Time = 142s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.29655e-05, Final residual = 9.07814e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0273733, Final residual = 0.00214698, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144713
+GAMG:  Solving for p, Initial residual = 0.0106015, Final residual = 0.000908662, No Iterations 5
+time step continuity errors : sum local = 7.27678e-09, global = 1.40018e-18, cumulative = -9.04304e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.014475
+smoothSolver:  Solving for omega, Initial residual = 7.0044e-06, Final residual = 7.0044e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00829158, Final residual = 0.000555956, No Iterations 5
+ExecutionTime = 0.384361 s  ClockTime = 0 s
+
+Time = 143s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.25503e-05, Final residual = 8.92339e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.016223, Final residual = 0.00140068, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144712
+GAMG:  Solving for p, Initial residual = 0.00831188, Final residual = 0.000616172, No Iterations 5
+time step continuity errors : sum local = 5.29479e-09, global = -5.48318e-18, cumulative = -9.59136e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144748
+smoothSolver:  Solving for omega, Initial residual = 7.0031e-06, Final residual = 7.0031e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00826439, Final residual = 0.000525247, No Iterations 5
+ExecutionTime = 0.386595 s  ClockTime = 0 s
+
+Time = 144s
+
+smoothSolver:  Solving for Ux, Initial residual = 2.21405e-05, Final residual = 8.76921e-06, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.00987272, Final residual = 0.000945404, No Iterations 3
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144712
+GAMG:  Solving for p, Initial residual = 0.0079577, Final residual = 0.000447146, No Iterations 4
+time step continuity errors : sum local = 3.74482e-09, global = 1.09068e-17, cumulative = -8.50068e-17
+Pressure gradient source: uncorrected Ubar = 1, pressure gradient = 0.0144745
+smoothSolver:  Solving for omega, Initial residual = 7.00173e-06, Final residual = 7.00173e-06, No Iterations 0
+smoothSolver:  Solving for k, Initial residual = 0.00825587, Final residual = 0.000516011, No Iterations 5
+ExecutionTime = 0.388779 s  ClockTime = 0 s
+
+
+SIMPLE solution converged in 144 iterations
+
+End
+

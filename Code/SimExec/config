@@ -1,0 +1,7 @@
+Ubar	2.700e+00;
+sigma	7.000e+00;
+nuVar	1.260e+01;
+nCellsX	4;
+nCellsY	50;
+wallGrading	4.0;
+endTime	5000;
