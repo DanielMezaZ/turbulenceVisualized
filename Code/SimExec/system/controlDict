@@ -30,7 +30,7 @@ deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   $endTime;
+writeInterval   $writeInt;
 
 purgeWrite      0;
 
@@ -48,8 +48,24 @@ runTimeModifiable true;
 
 functions
 {
-	#includeFunc "residuals"
-    #includeFunc "stressComponents"
+    #includeFunc "residuals"
+    stressComp1{
+	type            turbulenceFields;
+	libs            ("libfieldFunctionObjects.so");
+
+	// Mandatory entries (runtime modifiable)
+	// Either field or fields entries
+	fields          (R devRhoReff);
+	field           R;
+
+	// Optional (inherited) entries
+	enabled         true;
+	log             true;
+	executeControl  timeStep;
+	executeInterval 1;
+	writeControl    timeStep;
+	writeInterval   $writeInt;
+    }
 }
 
 // ************************************************************************* //

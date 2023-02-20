@@ -14,10 +14,11 @@ FoamFile
     object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "../config"
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0.015;
+internalField   uniform $k0;
 
 boundaryField
 {
@@ -26,7 +27,7 @@ boundaryField
     	type cyclic;
         //type            turbulentIntensityKineticEnergyInlet;
 		//intensity	0.1;
-        //value           uniform 0.015;
+        //value           uniform $k0;
     }
     outlet
     {
@@ -37,12 +38,12 @@ boundaryField
     {
     	type symmetry;
         //type            kqRWallFunction;
-        //value           uniform 0.015;
+        //value           uniform $k0;
     }
     fixedWalls-bottom
     {
         type            kqRWallFunction;
-        value           uniform 0.015;
+        value           uniform $k0;
     }
     frontAndBack
     {

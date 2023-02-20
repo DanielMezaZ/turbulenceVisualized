@@ -1,0 +1,80 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 10-e450dce21ea5
+Exec   : simpleFoam -postProcess -func sample -latestTime
+Date   : Feb 20 2023
+Time   : 14:13:53
+Host   : "w530-R9YK46P"
+PID    : 18753
+I/O    : uncollated
+Case   : /home/jdmezazeron/gitDanielMezaZ/turbulenceVisualized/Data/SimulationFiles/K25_Re1693
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 2430
+
+
+SIMPLE: Convergence criteria found
+        U: tolerance 0.0001
+        p: tolerance 0.01
+        omega: tolerance 0.0001
+
+Time = 2430s
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Selecting viscosity model Newtonian
+Selecting turbulence model type RAS
+Selecting RAS turbulence model kOmegaSST
+Selecting patchDistMethod meshWave
+RAS
+{
+    RASModel        kOmegaSST;
+    turbulence      on;
+    printCoeffs     on;
+    alphaK1         0.85;
+    alphaK2         1;
+    alphaOmega1     0.5;
+    alphaOmega2     0.856;
+    gamma1          0.555556;
+    gamma2          0.44;
+    beta1           0.075;
+    beta2           0.0828;
+    betaStar        0.09;
+    a1              0.31;
+    b1              1;
+    c1              10;
+    F3              false;
+}
+
+No MRF models present
+
+--> FOAM Warning : Creating fvModels from "system/fvOptions" rather than constant/fvModels
+No fvModels present
+--> FOAM Warning : Creating fvConstraints from "system/fvOptions"
+
+Selecting finite volume constraint type meanVelocityForce
+    Name: momentumSource
+    - selecting all cells
+    - selected 400 cell(s) with volume 4
+    Initial pressure gradient = 0
+
+Reading set description:
+    center_y
+
+
+End
+

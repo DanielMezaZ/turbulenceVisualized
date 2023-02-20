@@ -18,11 +18,11 @@ from pathlib import Path
 workDir=os.getcwd()
 workDir=str(Path(workDir).parents[1])
 
-sample = np.linspace(0,8.5,30)
+sample = np.linspace(0,8,50)
 ReArray=100*2**sample
 
 for i in range(sample.size):
-    simName="E"+str(i)+"_Re"+str(int(round(ReArray[i],0)))
+    simName="K"+str(i)+"_Re"+str(int(round(ReArray[i],0)))
     pathSim=workDir+"/Data/SimulationFiles/"+simName
     command="./Allrun"
     p = subprocess.Popen(command, cwd=pathSim)
@@ -36,7 +36,7 @@ for i in range(sample.size):
 # Move one folder down -latestTime of the simulation is not required
 # Only this section needs admin permission
 for i in range(sample.size):
-    simName="E"+str(i)+"_Re"+str(int(round(ReArray[i],0)))
+    simName="K"+str(i)+"_Re"+str(int(round(ReArray[i],0)))
     pathSim=workDir+"/Data/Raw/"+simName
     command="sudo find "+pathSim+" -mindepth 2 -type f -exec mv -f '{}' "+pathSim+ " ';'"
     p = subprocess.call(command, cwd=pathSim,shell=True)

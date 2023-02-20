@@ -1,0 +1,22 @@
+Usage
+Provide 3 out of 4 parameters assign None to the one unknown
+python3 ~/gitDanielMezaZ/turbulenceVisualized/Code/SimExec/genProfile.py -Ubar <value> -delta <value> -nu <value> -Re_b <value> -o <output file label>
+
+Note: Set nu to 1 if possible -nu 1
+
+Example
+python3 ~/gitDanielMezaZ/turbulenceVisualized/Code/SimExec/genProfile.py -Ubar None -delta 1 -nu 1 -Re_b 100 -o VelProfRe_b-100
+
+Generates a csv file with the values of the profile. Taking them from ./postProcessing
+
+Exported values
+-Ux, Uy, Uz
+-k
+-omega
+
+Epsilon is obtained from k & omega 
+epsilon=omega*k*beta
+
+https://www.cfd-online.com/Wiki/Specific_turbulence_dissipation_rate
+
+The output is the csv file and a plot in png format in the directory where the command was called from

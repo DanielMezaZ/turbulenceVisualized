@@ -44,7 +44,7 @@ SIMPLE
 
     residualControl
     {
-        U				1e-2; // not working
+        U				1e-4; // not working
         p               1e-2;
         omega		 	1e-4;
     }

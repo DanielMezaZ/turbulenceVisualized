@@ -1,0 +1,10 @@
+Ubar	1;
+sigma	1;
+nuVar	2.000E-02;
+k0	1.214E-02;
+omega0	1.006E-01;
+nCellsX	4;
+nCellsY	100;
+wallGrading	4.0;
+endTime	10000;
+writeInt	2500;

@@ -14,10 +14,11 @@ FoamFile
     object      omega;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "../config"
 
 dimensions      [0 0 -1 0 0 0 0];
 
-internalField   uniform 79.8596;
+internalField   uniform $omega0;
 
 boundaryField
 {

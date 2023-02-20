@@ -16,7 +16,6 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 #include        "../config";
 
-//nuVar           #calc "round(2*$Ubar*$sigma/$Reb)";
 transportModel  Newtonian;
 
 nu              [0 2 -1 0 0 0 0] $nuVar;
